@@ -166,33 +166,56 @@ class linked_list:
             temp.next = before
             before = temp
             temp = after
-    def reverse_between(self, m, n):
-        
-        # If the linked list is empty, then return None.
-        if not self.head:
-            return None
+    def reverse_between(self, m, n):    
+        '''  
+        # # If the linked list is empty, then return None.
+        # if not self.head:
+        #     return None
     
-        # create a dummy node and connect it to the head.
+        # # create a dummy node and connect it to the head.
+        # dummy = Node(0)
+        # dummy.next = self.head
+        # prev = dummy
+    
+        # # move prev to the node at position m.
+        # for i in range(m):
+        #     prev = prev.next
+    
+        # # set current to the next node of prev.
+        # current = prev.next
+        
+        # # Reverse the linked list from position m to n.
+        # for i in range(n - m):
+        #     temp = current.next
+        #     current.next = temp.next
+        #     temp.next = prev.next
+        #     prev.next = temp
+    
+        # # update the head of the linked list with the next node of the dummy.
+        # self.head = dummy.next
+        '''
+      # check if linklist has one node only
+        if self.head.next == None :
+            return None
+      #create a dummy Node and a pre node 
         dummy = Node(0)
         dummy.next = self.head
-        prev = dummy
-    
-        # move prev to the node at position m.
-        for i in range(m):
-            prev = prev.next
-    
-        # set current to the next node of prev.
-        current = prev.next
-        
-        # Reverse the linked list from position m to n.
-        for i in range(n - m):
+        pre = dummy
+      #traverse the pre node to the node before m-th node
+        for _ in range(m):
+            pre = pre.next
+      #set the dummy node at the m-th node
+        current = pre.next
+      #Reverse the linked list from position m to n.
+        for i in range(n-m):
             temp = current.next
             current.next = temp.next
-            temp.next = prev.next
-            prev.next = temp
-    
-        # update the head of the linked list with the next node of the dummy.
-        self.head = dummy.next
+            temp.next = pre.next
+            pre.next = temp
+            
+
+
+
 
 my_link = linked_list()
 
